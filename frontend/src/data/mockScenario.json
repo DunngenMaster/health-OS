@@ -1,0 +1,19 @@
+[
+  {
+    "id": "scenario-financial-district-collapse",
+    "name": "Financial District Building Collapse",
+    "type": "building collapse",
+    "location": {
+      "name": "Financial District, San Francisco",
+      "latitude": 37.7945,
+      "longitude": -122.4028
+    },
+    "summary": {
+      "injured": 100,
+      "critical": 20,
+      "severity": "high"
+    },
+    "timestamp": "2026-06-12T09:30:00Z",
+    "status": "active"
+  }
+]
