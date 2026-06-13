@@ -1,0 +1,36 @@
+{
+  "id": "scenario-coastal-tsunami",
+  "name": "Coastal Tsunami Surge",
+  "type": "tsunami",
+  "summary": {
+    "injured": 190,
+    "critical": 40,
+    "severity": "critical"
+  },
+  "timestamp": "2026-06-13T08:45:00Z",
+  "status": "active",
+  "impact_points": [
+    {
+      "id": "impact-embarcadero",
+      "name": "Embarcadero Flood Zone",
+      "latitude": 37.7955,
+      "longitude": -122.3937,
+      "radius_km": 1.2,
+      "summary": {
+        "injured": 120,
+        "critical": 28
+      }
+    },
+    {
+      "id": "impact-ocean-beach",
+      "name": "Ocean Beach Evacuation Zone",
+      "latitude": 37.7596,
+      "longitude": -122.5101,
+      "radius_km": 2.5,
+      "summary": {
+        "injured": 70,
+        "critical": 12
+      }
+    }
+  ]
+}
