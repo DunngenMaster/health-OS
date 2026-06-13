@@ -182,7 +182,7 @@ export default function MapDashboard() {
   const hospitalClickRef = useRef<(payload: HospitalClickPayload) => void>(() => {})
 
   const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN
-  const apiBase = import.meta.env.VITE_API_BASE_URL ?? (import.meta.env.DEV ? '' : 'http://127.0.0.1:8000')
+  const apiBase = import.meta.env.VITE_API_BASE_URL ?? ''
 
   const clearMapAnnotations = useCallback(() => {
     if (!map.current) return
@@ -311,42 +311,6 @@ export default function MapDashboard() {
       }))
     )
     saveScenarioContext(result.scenario_id, result.scenario_name, result.scenario_type, allHospitals)
-  }
-
-  const loadScenario = async (selected: ScenarioItem) => {
-    setIsLoadingRoutes(true)
-    setLoadingMessage('Analyzing hospitals and mapping routes…')
-    setScenario(null)
-    setIsLoaded(false)
-
-    try {
-      const response = await fetch(`${apiBase}/api/v1/analyze-scenario`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(selected)
-      })
-
-      if (!response.ok) {
-        const errorBody = await response.text()
-        throw new Error(`API error (${response.status}): ${errorBody}`)
-      }
-
-      const result = await response.json() as ScenarioAnalysisResponse
-
-      if (!Array.isArray(result.impact_analyses) || !result.impact_analyses.length) {
-        throw new Error('API returned no impact analyses')
-      }
-
-      await applyScenarioAnalysis(selected, result)
-    } catch (error) {
-      console.error('Failed to load scenario', error)
-      setScenario(null)
-      setIsLoaded(false)
-      setImpactData([])
-      alert(error instanceof Error ? error.message : 'Failed to load scenario. Start the backend with: uvicorn app.main:app --reload --port 8000')
-    } finally {
-      setIsLoadingRoutes(false)
-    }
   }
 
   const handleScenarioFormSubmit = async (form: ScenarioFormInput) => {

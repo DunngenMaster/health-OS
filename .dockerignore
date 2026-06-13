@@ -1,0 +1,16 @@
+**/.git
+**/__pycache__
+**/*.pyc
+**/.env
+**/.env.*
+!**/.env.example
+**/node_modules
+**/venv
+**/.venv
+backend/app/data/chroma
+backend/app/data/hospital_profiles
+backend/app/data/hospital_os_reports
+backend/app/data/hospital_memory
+backend/app/data/incident_digests
+frontend/dist
+.git-commit-batch.ps1

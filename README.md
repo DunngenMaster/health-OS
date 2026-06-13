@@ -162,6 +162,36 @@ healthOs/
 └── README.md
 ```
 
+## Deploy on Railway (frontend + backend, one URL)
+
+Railway must use the **repo root** as the root directory (not `backend/`).
+
+1. **New Project** → Deploy from GitHub → select this repo.
+2. **Root Directory:** leave blank (repository root).
+3. Railway reads `railway.toml` and builds the root `Dockerfile`.
+4. **Variables** (Settings → Variables):
+
+   | Variable | When needed | Purpose |
+   |----------|-------------|---------|
+   | `GEMINI_API_KEY` | Runtime | Gemini agents |
+   | `VITE_MAPBOX_TOKEN` | **Build** | Mapbox map (baked into frontend at build) |
+
+   For `VITE_MAPBOX_TOKEN`, enable **“Available at Build Time”** in Railway.
+
+5. Deploy. Open the generated URL — app and API share the same origin (`/api/v1/...`).
+
+**If deploy fails:**
+
+| Symptom | Fix |
+|---------|-----|
+| `Dockerfile not found` | Set Root Directory to repo root, not `backend` |
+| Build fails on `pip install chromadb` | Use a plan with **≥2 GB RAM**; build can take several minutes |
+| Map blank after deploy | Set `VITE_MAPBOX_TOKEN` with build-time enabled, redeploy |
+| `503 GEMINI_API_KEY` | Add `GEMINI_API_KEY` variable, redeploy |
+| Health check fails | Wait for first deploy; Chroma/Gemini deps slow cold start |
+
+Health check: `GET /health`
+
 ## Troubleshooting
 
 - **`chromadb is required`** — run `pip install -r requirements.txt` inside `backend/venv`; restart uvicorn if install failed due to file locks

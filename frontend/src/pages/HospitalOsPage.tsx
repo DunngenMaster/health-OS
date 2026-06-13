@@ -32,7 +32,7 @@ import {
   readCachedHospitalProfile,
 } from '../utils/hospitalOsUtils'
 
-const apiBase = import.meta.env.VITE_API_BASE_URL ?? (import.meta.env.DEV ? '' : 'http://127.0.0.1:8000')
+const apiBase = import.meta.env.VITE_API_BASE_URL ?? ''
 
 function DataTransparencyBar({ real, estimated, simulated, unavailable }: { real: number; estimated: number; simulated: number; unavailable: number }) {
   return (
