@@ -1,0 +1,47 @@
+{
+  "id": "scenario-bay-area-earthquake",
+  "name": "M7.2 Bay Area Earthquake",
+  "type": "earthquake",
+  "summary": {
+    "injured": 280,
+    "critical": 55,
+    "severity": "critical"
+  },
+  "timestamp": "2026-06-13T06:12:00Z",
+  "status": "active",
+  "impact_points": [
+    {
+      "id": "impact-mission-district",
+      "name": "Mission District Epicenter",
+      "latitude": 37.7599,
+      "longitude": -122.4148,
+      "radius_km": 2.2,
+      "summary": {
+        "injured": 110,
+        "critical": 25
+      }
+    },
+    {
+      "id": "impact-soma",
+      "name": "SOMA Structural Collapse Zone",
+      "latitude": 37.7785,
+      "longitude": -122.4058,
+      "radius_km": 1.8,
+      "summary": {
+        "injured": 95,
+        "critical": 18
+      }
+    },
+    {
+      "id": "impact-marina",
+      "name": "Marina Liquefaction Zone",
+      "latitude": 37.8021,
+      "longitude": -122.4416,
+      "radius_km": 1.5,
+      "summary": {
+        "injured": 75,
+        "critical": 12
+      }
+    }
+  ]
+}
