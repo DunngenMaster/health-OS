@@ -1,3 +1,24 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.mapboxgl-map,
+.mapboxgl-canvas-container,
+.mapboxgl-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -51,15 +72,74 @@
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
-  border-inline: 1px solid var(--border);
+  border-inline: none;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+/* Hospital OS — force readable light theme (overrides dark-mode globals) */
+html:has(.hospital-os-page),
+body:has(.hospital-os-page),
+#root:has(.hospital-os-page) {
+  background: #faf9f7 !important;
+  color: #1e293b !important;
+  color-scheme: light only;
+}
+
+.hospital-os-page {
+  width: 100%;
+  min-width: 100%;
+  flex: 1 1 auto;
+  text-align: left;
+  color: #1e293b;
+  background: #faf9f7;
+  color-scheme: light only;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:has(.hospital-os-page),
+  body:has(.hospital-os-page),
+  #root:has(.hospital-os-page) {
+    background: #faf9f7 !important;
+    color: #1e293b !important;
+    color-scheme: light only;
+  }
+
+  .hospital-os-page,
+  .hospital-os-page section,
+  .hospital-os-page header,
+  .hospital-os-page main {
+    background-color: #faf9f7;
+    color: #1e293b;
+  }
+
+  .hospital-os-page .bg-white {
+    background-color: #ffffff !important;
+  }
+}
+
+.hospital-os-page h1,
+.hospital-os-page h2,
+.hospital-os-page h3 {
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: normal;
+}
+
+.hospital-os-page h1 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+.hospital-os-page p {
+  text-align: left;
 }
 
 body {
