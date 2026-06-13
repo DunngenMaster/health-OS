@@ -1,0 +1,47 @@
+{
+  "id": "scenario-respiratory-outbreak",
+  "name": "Respiratory Outbreak Clusters",
+  "type": "outbreak",
+  "summary": {
+    "injured": 210,
+    "critical": 35,
+    "severity": "high"
+  },
+  "timestamp": "2026-06-13T11:20:00Z",
+  "status": "active",
+  "impact_points": [
+    {
+      "id": "impact-tenderloin",
+      "name": "Tenderloin Cluster",
+      "latitude": 37.7847,
+      "longitude": -122.4141,
+      "radius_km": 1.0,
+      "summary": {
+        "injured": 85,
+        "critical": 15
+      }
+    },
+    {
+      "id": "impact-castro",
+      "name": "Castro Community Cluster",
+      "latitude": 37.7609,
+      "longitude": -122.4350,
+      "radius_km": 1.2,
+      "summary": {
+        "injured": 65,
+        "critical": 10
+      }
+    },
+    {
+      "id": "impact-chinatown",
+      "name": "Chinatown Exposure Zone",
+      "latitude": 37.7941,
+      "longitude": -122.4078,
+      "radius_km": 0.9,
+      "summary": {
+        "injured": 60,
+        "critical": 10
+      }
+    }
+  ]
+}
